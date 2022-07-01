@@ -13,5 +13,5 @@ db.set('debug', true);
 db.on('error', console.error.bind(console, 'connection error: '));
 db.once('open', () => {
   console.log('Connected successfully');
+  app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
 });
-app.listen(PORT, () => console.log(`🌍 Connected on localhost:${PORT}`));
