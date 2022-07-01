@@ -36,10 +36,10 @@ const UserSchema = new Schema(
 );
 
 // virtual
-UserSchema.virtual('friendCount').get(()=>{
-    return this.friends.length
-})
+UserSchema.virtual("friendCount").get(() => {
+  return this.friends.length;
+});
 
-const User = model('User', UserSchema);
+const User = model("User", UserSchema);
 
 model.exports = User;
