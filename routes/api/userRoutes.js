@@ -17,16 +17,16 @@ router
     .post(createUser);
 
 // get/update/delete users by id /api/users/:userId
-// router
-//     .route('/:userid')
-//     .get(getUserById)
-//     .put(updateUser)
-//     .delete(deleteUser);
+router
+    .route('/:userId')
+    .get(getUserById)
+    .put(updateUser)
+    .delete(deleteUser);
 
-// // create/delete friend /api/users/:userId/friends/:friendId
-// router
-//     .route('/:userid/friends/:friendId')
-//     .post(createFriend)
-//     .delete(deleteFriend);
+// create/delete friend /api/users/:userId/friends/:friendId
+router
+    .route('/:userId/friends/:friendId')
+    .post(createFriend)
+    .delete(deleteFriend);
 
 module.exports = router;
