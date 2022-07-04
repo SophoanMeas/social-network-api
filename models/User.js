@@ -10,8 +10,8 @@ const UserSchema = new Schema(
     },
     email: {
       type: String,
-      required: true,
       unique: true,
+      required: true,
       match: [/.+@.+\..+/],
     },
     thoughts: [
@@ -28,7 +28,7 @@ const UserSchema = new Schema(
     ],
   },
   {
-    toJson: {
+    toJSON: {
       virtuals: true,
     },
     id: false,
@@ -42,4 +42,4 @@ UserSchema.virtual('friendCount').get(function() {
 
 const User = model('User', UserSchema);
 
-model.exports = User;
+module.exports = User;

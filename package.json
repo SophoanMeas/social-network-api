@@ -4,10 +4,9 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.18.1",
+    "express": "^4.17.1",
     "mongoose": "^6.4.2",
-    "nodemon": "^2.0.18",
-    "uninstall": "0.0.0"
+    "nodemon": "^2.0.18"
   },
   "devDependencies": {},
   "scripts": {
