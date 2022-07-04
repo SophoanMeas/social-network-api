@@ -15,22 +15,22 @@ router
     .route('/')
     .get(getAllThoughts)
 
-// get thought by id, create/update/delete thoughts /api/thoughts:id
+// get a thought by id, add, update, delete thoughts /api/thoughts:id
 router
     .route('/:id')
+    .post(addThought)
     .get(getThoughtById)
     .put(updateThought)
     .delete(deleteThough)
-    .post(addThought)
 
 // add reaction /api/thoughts/:thoughtId/reactions
 router
-    .route('/thoughtId/reactions')
+    .route('/:id/reactions/')
     .post(addReaction)
 
 // delete reaction /api/thoughts/thoughId/reactionId
 router
-    .route('/thoughtId/reactions/:reactionId')
+    .route('/:id/reactions/:reactionId')
     .delete(deleteReaction)
 
 module.exports = router;
