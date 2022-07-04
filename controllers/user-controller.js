@@ -61,7 +61,9 @@ const userController = {
           res.status(404).json({ message: 'No user found with tis id!' });
           return;
         }
-        res.status(200).json({ user: dbUserData, message: 'User was updated successfully' });
+        res
+          .status(200)
+          .json({ user: dbUserData, message: 'User was updated successfully' });
       })
       .catch((err) => res.json(err));
   },
@@ -71,7 +73,10 @@ const userController = {
     User.findOneAndDelete({ _id: params.id })
       .then((dbUserData) => {
         if (!dbUserData) {
-          res.status(404).json({user: dbUserData, message: 'No user was found with this id!' });
+          res.status(404).json({
+            user: dbUserData,
+            message: 'No user was found with this id!',
+          });
           return;
         }
         res.status(200).json({ message: 'User was removed successfully' });
@@ -98,7 +103,10 @@ const userController = {
             .json({ message: 'No user/friend was found with this id!' });
           return;
         }
-        res.status(200).json({friend: dbUserData, message: 'Friend was added successfully' });
+        res.status(200).json({
+          friend: dbUserData,
+          message: 'Friend was added successfully',
+        });
       })
       .catch((err) => res.json(err));
   },
@@ -106,9 +114,9 @@ const userController = {
   // delete a friend from a user's friend list
   deleteFriend({ params }, res) {
     User.findOneAndUpdate(
-        { _id: params.userId }, 
-        { $pull: { friends: params.id}},
-        { new: true }
+      { _id: params.userId },
+      { $pull: { friends: params.id } },
+      { new: true }
     )
       .populate({
         path: 'friends',
@@ -117,12 +125,13 @@ const userController = {
       .select('-__v')
       .then((dbUserData) => {
         if (!dbUserData) {
-          res
-            .status(404)
-            .json({ message: 'No user was found with this id!' });
+          res.status(404).json({ message: 'No user was found with this id!' });
           return;
         }
-        res.status(200).json({friend: dbUserData, message: 'Friend was removed successfully' });
+        res.status(200).json({
+          friend: dbUserData,
+          message: 'Friend was removed successfully',
+        });
       })
       .catch((err) => res.status(404).json(err));
   },
